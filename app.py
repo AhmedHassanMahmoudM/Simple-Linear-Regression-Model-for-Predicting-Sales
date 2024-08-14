@@ -5,7 +5,7 @@ import numpy as np
 import pickle  
 
 # Load the model
-model = joblib.load('linear_regression_model.pkl')
+model = pickle.load('linear_regression_model.pkl')
 
 # Streamlit app
 st.title('Sales Prediction App')
