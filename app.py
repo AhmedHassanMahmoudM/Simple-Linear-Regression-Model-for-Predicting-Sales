@@ -2,7 +2,7 @@
 
 import streamlit as st
 import numpy as np
-import joblib  # or pickle
+import pickle  
 
 # Load the model
 model = joblib.load('linear_regression_model.pkl')
