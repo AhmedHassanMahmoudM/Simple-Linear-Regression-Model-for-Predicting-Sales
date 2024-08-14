@@ -5,8 +5,8 @@ import numpy as np
 import pickle  
 
 # Load the model
-model = pickle.load('linear_regression_model.pkl')
-
+with open('linear_regression_model.pkl', 'rb') as file:
+    model = pickle.load(file)
 # Streamlit app
 st.title('Sales Prediction App')
 
