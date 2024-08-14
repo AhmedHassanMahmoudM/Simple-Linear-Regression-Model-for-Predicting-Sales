@@ -11,9 +11,10 @@ with open('linear_regression_model.pkl', 'rb') as file:
 st.title('Sales Prediction App')
 
 # Get user inputs
-TV_input = st.text_input('Enter TV Advertising Budget:')
-Radio_input = st.text_input('Enter Radio Advertising Budget:')
-Newspaper_input = st.text_input('Enter Newspaper Advertising Budget:')
+TV = st.number_input('TV Advertising Budget', min_value=0.0)
+Radio = st.number_input('Radio Advertising Budget', min_value=0.0)
+Newspaper = st.number_input('Newspaper Advertising Budget', min_value=0.0)
+
 
 # Convert inputs to numeric, handling potential conversion errors
 try:
