@@ -1,5 +1,5 @@
 # Deployment Sales Prediction
-"""import sklearn
+import sklearn
 import streamlit as st
 import numpy as np
 import pickle  
@@ -31,35 +31,3 @@ if st.button('Predict'):
         st.write(f'The predicted sales is: {prediction[0]}')
     else:
         st.error("Make sure all inputs are numeric.")
-"""
-
-import streamlit as st
-import numpy as np
-import pickle
-import sklearn
-
-# Streamlit app title
-st.title('Sales Prediction App')
-
-# Check for scikit-learn installation
-st.write(f"Scikit-learn version: {sklearn.__version__}")
-
-# Load the model
-try:
-    with open('linear_regression_model.pkl', 'rb') as file:
-        model = pickle.load(file)
-except FileNotFoundError:
-    st.error("Model file not found.")
-except Exception as e:
-    st.error(f"An error occurred: {e}")
-
-# Input fields
-TV = st.number_input('TV Advertising Budget', min_value=0.0)
-Radio = st.number_input('Radio Advertising Budget', min_value=0.0)
-Newspaper = st.number_input('Newspaper Advertising Budget', min_value=0.0)
-
-# Predict button
-if st.button('Predict'):
-    input_data = np.array([[TV, Radio, Newspaper]])
-    prediction = model.predict(input_data)
-    st.write(f'The predicted sales is: ${prediction[0]:,.2f}')
