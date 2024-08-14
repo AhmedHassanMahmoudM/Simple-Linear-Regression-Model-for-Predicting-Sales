@@ -1,5 +1,5 @@
 # Deployment Sales Prediction
-
+import sklearn
 import streamlit as st
 import numpy as np
 import pickle  
