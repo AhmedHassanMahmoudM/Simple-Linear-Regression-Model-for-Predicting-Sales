@@ -1,6 +1,6 @@
 numpy==1.21.4
-streamlit==1.2.0  # Or the latest version, e.g., 1.25.0
-scikit-learn==1.0.1  # Or the latest version, e.g., 1.2.2
-joblib==1.2.0
+streamlit==1.2.0  # Or a newer version, e.g., 1.25.0
+scikit-learn==1.0.1  # Or a newer version, e.g., 1.2.2
+joblib==1.3.0
 
 
