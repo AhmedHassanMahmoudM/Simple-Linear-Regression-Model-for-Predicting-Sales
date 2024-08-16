@@ -1,20 +1,21 @@
 # Deployment Sales Prediction
-import sklearn
 import streamlit as st
 import numpy as np
-import pickle  
+import joblib
 
 # Load the model
-with open('linear_regression_model.pkl', 'rb') as file:
-    model = pickle.load(file)
+model = joblib.load('linear_regression_model.pkl')
+
 # Streamlit app
 st.title('Sales Prediction App')
 
 # Get user inputs
-TV = st.number_input('TV Advertising Budget', min_value=0.0)
-Radio = st.number_input('Radio Advertising Budget', min_value=0.0)
-Newspaper = st.number_input('Newspaper Advertising Budget', min_value=0.0)
+TV_input = st.text_input('Enter TV Advertising Budget:')
+Radio_input = st.text_input('Enter Radio Advertising Budget:')
+Newspaper_input = st.text_input('Enter Newspaper Advertising Budget:')
 
+# Initialize variables
+TV, Radio, Newspaper = None, None, None
 
 # Convert inputs to numeric, handling potential conversion errors
 try:
@@ -26,9 +27,9 @@ except ValueError:
 
 # Predict button
 if st.button('Predict'):
-    # Ensure inputs are numeric
-    if isinstance(TV, (int, float)) and isinstance(Radio, (int, float)) and isinstance(Newspaper, (int, float)):
+    if TV is not None and Radio is not None and Newspaper is not None:
         prediction = model.predict(np.array([[TV, Radio, Newspaper]]))
         st.write(f'The predicted sales is: {prediction[0]}')
     else:
         st.error("Make sure all inputs are numeric.")
+
